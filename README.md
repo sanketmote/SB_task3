@@ -19,6 +19,16 @@ started
 
 ``` sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ```
 
+## Setup For This Repo - 
+
+``` git init ```
+
+``` git remote add origin https://github.com/sanketmote/SB_task3.git ```
+
+``` git pull ```
+
+``` git push ```
+
 Following walkthrough videos will show you the steps to generate this ROS Package with MoveIt! configured.
 
 https://youtu.be/a5bn9XNVlVM
