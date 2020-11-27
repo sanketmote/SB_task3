@@ -18,3 +18,15 @@ started
 
 
 ``` sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ```
+
+Following walkthrough videos will show you the steps to generate this ROS Package with MoveIt! configured.
+
+https://youtu.be/a5bn9XNVlVM
+
+external links for task 3: 
+
+1. http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html
+
+2. https://moveit.ros.org/documentation/concepts/
+
+3. http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/getting_started/getting_started.html
