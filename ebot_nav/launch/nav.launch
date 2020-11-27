@@ -1,0 +1,28 @@
+<launch>
+    <!-- launch file for map server -->
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find ebot_nav)/maps/task2_world.yaml"  />
+
+    <!-- including launch file for localization using AMCL -->
+    <include file="$(find ebot_nav)/launch/amcl.launch" />
+
+    <!-- including launch file for visualizing in rviz -->
+    <include file="$(find ebot_description)/launch/ebot_visualize.launch"/>
+
+    <!-- Move base -->
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find ebot_nav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find ebot_nav)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find ebot_nav)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find ebot_nav)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find ebot_nav)/config/trajectory_planner.yaml" command="load" />
+        <rosparam file="$(find ebot_nav)/config/move_base_params.yaml" command="load" />
+        <rosparam file="$(find ebot_nav)/config/global_planner_params.yaml" command="load" />
+
+        <remap from="cmd_vel" to="/cmd_vel"/>
+        <remap from="odom" to="/odom"/>
+    </node>
+
+    <!-- launch file for goal node -->
+    <node pkg="ebot_nav" type="send_goal_node.py" name="send_goal_node"/>
+
+</launch>

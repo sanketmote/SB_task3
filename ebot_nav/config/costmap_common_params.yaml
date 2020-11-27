@@ -1,0 +1,17 @@
+# burger params
+obstacle_range: 4.0
+raytrace_range: 4.0
+footprint: [[-0.340, -0.285], [-0.340, 0.285], [0.340, 0.285], [0.340, -0.285]] #[-0.330, -0.275]
+
+transform_tolerance: 0.5
+track_unknown_space: false
+
+observation_sources: scan
+scan:
+  sensor_frame: laser
+  data_type: LaserScan
+  topic: /ebot/laser/scan
+  marking: true
+  clearing: true
+
+map_type: costmap
