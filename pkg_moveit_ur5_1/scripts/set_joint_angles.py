@@ -82,26 +82,26 @@ def main():
 
     ur5 = Ur5Moveit()
 
-    lst_joint_angles_1 = [math.radians(180),
-                          math.radians(0),
-                          math.radians(0),
-                          math.radians(0),
-                          math.radians(0),
-                          math.radians(0)]
+    lst_joint_angles_1 = [math.radians(14),
+                          math.radians(308),
+                          math.radians(86),
+                          math.radians(55),
+                          math.radians(92),
+                          math.radians(-292)]
 
-    lst_joint_angles_2 = [math.radians(133),
-                          math.radians(-59),
-                          math.radians(13),
-                          math.radians(-134),
-                          math.radians(47),
-                          math.radians(23)]
+    lst_joint_angles_2 = [math.radians(-14),
+                          math.radians(312),
+                          math.radians(78),
+                          math.radians(-303),
+                          math.radians(-270),
+                          math.radians(309)]
 
-    lst_joint_angles_3 = [math.radians(-70),
-                          math.radians(-54),
-                          math.radians(-139),
-                          math.radians(-174),
-                          math.radians(9),
-                          math.radians(6)]
+    lst_joint_angles_3 = [math.radians(-194),
+                          math.radians(-117),
+                          math.radians(-95),
+                          math.radians(298),
+                          math.radians(91),
+                          math.radians(267)]
 
     while not rospy.is_shutdown():
         ur5.set_joint_angles(lst_joint_angles_1)
