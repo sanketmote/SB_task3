@@ -84,31 +84,31 @@ def main():
     ur5 = Ur5Moveit()
 
     ur5_pose_1 = geometry_msgs.msg.Pose()
-    ur5_pose_1.position.x = -0.817261772949
-    ur5_pose_1.position.y = -0.109110076352
-    ur5_pose_1.position.z = 0.94446979642
-    ur5_pose_1.orientation.x = -0.999999995957
-    ur5_pose_1.orientation.y = 4.37354574363e-05
-    ur5_pose_1.orientation.z = 7.85715579538e-05
-    ur5_pose_1.orientation.w = 2.12177767514e-09
+    ur5_pose_1.position.x = 0.451200162399
+    ur5_pose_1.position.y = 0.224974782038
+    ur5_pose_1.position.z = 0.903036171172
+    ur5_pose_1.orientation.x = -0.685179452927
+    ur5_pose_1.orientation.y = -0.223635419344
+    ur5_pose_1.orientation.z = 0.213043225003
+    ur5_pose_1.orientation.w = 0.659643010106
 
     ur5_pose_2 = geometry_msgs.msg.Pose()
-    ur5_pose_2.position.x = -0.414925357653
-    ur5_pose_2.position.y = 0.284932768677
-    ur5_pose_2.position.z = 1.78027849967
-    ur5_pose_2.orientation.x = -0.199396929724
-    ur5_pose_2.orientation.y = 1.64394297608e-05
-    ur5_pose_2.orientation.z = 0.979918803013
-    ur5_pose_2.orientation.w = 6.03911583936e-05
+    ur5_pose_2.position.x = 0.540224332581
+    ur5_pose_2.position.y = -0.0221500888139
+    ur5_pose_2.position.z = 0.903913383151
+    ur5_pose_2.orientation.x = -0.333429739176
+    ur5_pose_2.orientation.y = -0.636615812955
+    ur5_pose_2.orientation.z = 0.62861366727
+    ur5_pose_2.orientation.w = 0.297304175972
 
     ur5_pose_3 = geometry_msgs.msg.Pose()
-    ur5_pose_3.position.x = 0.061218702528
-    ur5_pose_3.position.y = 0.150917431354
-    ur5_pose_3.position.z = 1.20083763657
-    ur5_pose_3.orientation.x = 0.635613875737
-    ur5_pose_3.orientation.y = 0.77190802743
-    ur5_pose_3.orientation.z = 0.00233308772292
-    ur5_pose_3.orientation.w = 0.0121472162087
+    ur5_pose_3.position.x = 0.5871240135
+    ur5_pose_3.position.y = -0.320272279267
+    ur5_pose_3.position.z = 0.950909551716
+    ur5_pose_3.orientation.x = -0.6140305786
+    ur5_pose_3.orientation.y = 0.0480110593442
+    ur5_pose_3.orientation.z = 0.0504672567326
+    ur5_pose_3.orientation.w = 0.78620254561
 
     while not rospy.is_shutdown():
         ur5.go_to_pose(ur5_pose_1)

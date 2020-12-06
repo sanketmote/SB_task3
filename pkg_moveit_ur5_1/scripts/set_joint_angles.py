@@ -96,12 +96,12 @@ def main():
                           math.radians(-270),
                           math.radians(309)]
 
-    lst_joint_angles_3 = [math.radians(-194),
-                          math.radians(-117),
-                          math.radians(-95),
-                          math.radians(298),
-                          math.radians(91),
-                          math.radians(267)]
+    lst_joint_angles_3 = [math.radians(-38),
+                          math.radians(301),
+                          math.radians(86),
+                          math.radians(-102),
+                          math.radians(-84),
+                          math.radians(231)]
 
     while not rospy.is_shutdown():
         ur5.set_joint_angles(lst_joint_angles_1)
