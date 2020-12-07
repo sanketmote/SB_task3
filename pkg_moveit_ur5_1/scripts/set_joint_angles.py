@@ -82,33 +82,81 @@ def main():
 
     ur5 = Ur5Moveit()
 
-    lst_joint_angles_1 = [math.radians(14),
-                          math.radians(308),
-                          math.radians(86),
-                          math.radians(55),
-                          math.radians(92),
-                          math.radians(-292)]
+    # lst_joint_angles_2 = [math.radians(14),
+    #                       math.radians(308),
+    #                       math.radians(86),
+    #                       math.radians(55),
+    #                       math.radians(92),
+    #                       math.radians(-292)]
 
-    lst_joint_angles_2 = [math.radians(-14),
-                          math.radians(312),
-                          math.radians(78),
-                          math.radians(-303),
+    lst_joint_angles_2 = [math.radians(219),
+                          math.radians(-107),
+                          math.radians(-116),
+                          math.radians(-48),
                           math.radians(-270),
-                          math.radians(309)]
+                          math.radians(101)]
 
-    lst_joint_angles_3 = [math.radians(-38),
-                          math.radians(301),
-                          math.radians(86),
-                          math.radians(-102),
-                          math.radians(-84),
-                          math.radians(231)]
+    # lst_joint_angles_1 = [math.radians(-14),
+    #                       math.radians(312),
+    #                       math.radians(78),
+    #                       math.radians(-303),
+    #                       math.radians(-270),
+    #                       math.radians(309)]
+
+    lst_joint_angles_1 = [math.radians(-171),
+                          math.radians(246),
+                          math.radians(-108),
+                          math.radians(-49),
+                          math.radians(89),
+                          math.radians(146)]
+
+    # lst_joint_angles_3 = [math.radians(-38),
+    #                       math.radians(301),
+    #                       math.radians(86),
+    #                       math.radians(-102),
+    #                       math.radians(-84),
+    #                       math.radians(231)]
+
+    lst_joint_angles_3 = [math.radians(-34),
+                          math.radians(296),
+                          math.radians(96),
+                          math.radians(-119),
+                          math.radians(269),
+                          math.radians(56)]
+
+    box_1 = [math.radians(-277),
+              math.radians(-60),
+              math.radians(67),
+              math.radians(-97),
+              math.radians(272),
+              math.radians(-96)]
+
+    box_2_1 = [math.radians(-87),
+              math.radians(305),
+              math.radians(63),
+              math.radians(-98),
+              math.radians(268),
+              math.radians(93)]
+
+    box_2_2 = [math.radians(-106),
+              math.radians(304),
+              math.radians(65),
+              math.radians(-99),
+              math.radians(268),
+              math.radians(75)]
 
     while not rospy.is_shutdown():
         ur5.set_joint_angles(lst_joint_angles_1)
         rospy.sleep(2)
+        ur5.set_joint_angles(box_1)
+        rospy.sleep(2)
         ur5.set_joint_angles(lst_joint_angles_2)
         rospy.sleep(2)
+        ur5.set_joint_angles(box_2_1)
+        rospy.sleep(2)
         ur5.set_joint_angles(lst_joint_angles_3)
+        rospy.sleep(2)
+        ur5.set_joint_angles(box_2_2)
         rospy.sleep(2)
 
     del ur5
