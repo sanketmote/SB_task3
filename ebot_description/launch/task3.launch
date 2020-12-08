@@ -27,7 +27,7 @@
 
 
 <!-- include the moveit launch file and node for pick and place -->
-	<include file="$(find pkg_moveit_ur5_1)/launch/main.launch" />
+	<include file="$(find pkg_moveit_ur5_2)/launch/main.launch" />
 
 <!-- Rosbag Recording Node -->
 	<arg name="duration" default="120"/>
