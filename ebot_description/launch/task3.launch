@@ -19,10 +19,10 @@
 		args="-urdf -param robot_description -model ebot -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg r) -P $(arg p) -Y $(arg ya)" />
 
 
-<!-- Add tables and drop boxes to Moveit Planning Scene in RViz
+<!-- Add tables and drop boxes to Moveit Planning Scene in RViz -->
 	<arg name="scene_file" default="$(find ebot_description)/scenes/task3.scene"/>
 	<node name = "moveit_publish_scene_from_text" pkg= "moveit_ros_planning" type = "moveit_publish_scene_from_text" args= "$(arg scene_file)"/>
--->
+
 
 
 

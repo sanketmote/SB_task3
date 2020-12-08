@@ -119,6 +119,15 @@ def main():
     ur5_pose_1.orientation.z = 0.656934879419
     ur5_pose_1.orientation.w = 0.283752115763
 
+    ur5_pose_1_down = geometry_msgs.msg.Pose()
+    ur5_pose_1_down.position.x = 0.569201132988
+    ur5_pose_1_down.position.y = -0.0203906697051
+    ur5_pose_1_down.position.z = 0.863318335053
+    ur5_pose_1_down.orientation.x = -0.280065095859
+    ur5_pose_1_down.orientation.y = -0.639910027336
+    ur5_pose_1_down.orientation.z = 0.656934879419
+    ur5_pose_1_down.orientation.w = 0.283752115763
+
     box_1 = geometry_msgs.msg.Pose()
     box_1.position.x = -0.0235100083399
     box_1.position.y = 0.704612729528
@@ -164,9 +173,10 @@ def main():
     box_2_2.orientation.z = 0.501638162456
     box_2_2.orientation.w = 0.514990587742
 
-
     while not rospy.is_shutdown():
         ur5.go_to_pose(ur5_pose_1)
+        rospy.sleep(2)
+        ur5.go_to_pose(ur5_pose_1_down)
         rospy.sleep(2)
         ur5.go_to_pose(box_1)
         rospy.sleep(2)
