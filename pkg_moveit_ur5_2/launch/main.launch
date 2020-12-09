@@ -3,7 +3,7 @@
 <!-- Launch Gazebo  -->
 
 <launch>
-
+  <!-- IMPORTANT: comment this gazebo.launch line only when launching task3.launch  -->
   <include file="$(find pkg_moveit_ur5_2)/launch/gazebo.launch"/>
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">

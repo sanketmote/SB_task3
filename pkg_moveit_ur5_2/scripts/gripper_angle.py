@@ -10,7 +10,7 @@ import actionlib
 import math
 
 
-class Ur5Moveit:
+class Ur5Gripper:
 
     # Constructor
     def __init__(self):
@@ -41,7 +41,7 @@ class Ur5Moveit:
         rospy.loginfo(
             '\033[94m' + "Group Names: {}".format(self._group_names) + '\033[0m')
 
-        rospy.loginfo('\033[94m' + " >>> Ur5Moveit init done." + '\033[0m')
+        rospy.loginfo('\033[94m' + " >>> Ur5Gripper init done." + '\033[0m')
 
     def set_joint_angles(self, arg_list_joint_angles):
 
@@ -75,25 +75,25 @@ class Ur5Moveit:
     def __del__(self):
         moveit_commander.roscpp_shutdown()
         rospy.loginfo(
-            '\033[94m' + "Object of class Ur5Moveit Deleted." + '\033[0m')
+            '\033[94m' + "Object of class Ur5Gripper Deleted." + '\033[0m')
 
 
 def main():
 
-    ur5 = Ur5Moveit()
+    gripper = Ur5Gripper()
 
     open = [math.radians(0)]
 
     close = [math.radians(29)]
 
     while not rospy.is_shutdown():
-        ur5.set_joint_angles(close)
+        gripper.set_joint_angles(close)
         rospy.sleep(2)
-        ur5.set_joint_angles(open)
+        gripper.set_joint_angles(open)
         rospy.sleep(2)
 
 
-    del ur5
+    del gripper
 
 
 if __name__ == '__main__':
