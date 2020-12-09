@@ -122,7 +122,7 @@ def main():
     ur5_pose_1_down = geometry_msgs.msg.Pose()
     ur5_pose_1_down.position.x = 0.569201132988
     ur5_pose_1_down.position.y = -0.0203906697051
-    ur5_pose_1_down.position.z = 0.863318335053
+    ur5_pose_1_down.position.z = 0.843318335053
     ur5_pose_1_down.orientation.x = -0.280065095859
     ur5_pose_1_down.orientation.y = -0.639910027336
     ur5_pose_1_down.orientation.z = 0.656934879419
