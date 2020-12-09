@@ -153,7 +153,7 @@ def main():
     # gripper open and close
     open = [math.radians(0)]
 
-    close = [math.radians(25)]
+    close = [math.radians(11)]
 
     #object 1
     lst_joint_angles_1_up = [math.radians(190),
