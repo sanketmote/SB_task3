@@ -153,7 +153,9 @@ def main():
     # gripper open and close
     open = [math.radians(0)]
 
-    close = [math.radians(11)]
+    close1 = [math.radians(14)]
+    close2 = [math.radians(25)]
+    close3 = [math.radians(16)]
 
     #object 1
     lst_joint_angles_1_up = [math.radians(190),
@@ -164,9 +166,9 @@ def main():
                           math.radians(-214)]
 
     lst_joint_angles_1_down = [math.radians(189),
-                          math.radians(-125),
+                          math.radians(-124),
                           math.radians(-111),
-                          math.radians(-35),
+                          math.radians(-36),
                           math.radians(89),
                           math.radians(-214)]
 
@@ -178,10 +180,12 @@ def main():
                           math.radians(-270),
                           math.radians(101)]
 
-    #lst_joint_angles_2_down =
-
-
-
+    lst_joint_angles_2_down = [math.radians(219),
+                          math.radians(-119),
+                          math.radians(-120),
+                          math.radians(-32),
+                          math.radians(-269),
+                          math.radians(101)]
 
     #object 3
     lst_joint_angles_3_up = [math.radians(-34),
@@ -191,7 +195,12 @@ def main():
                           math.radians(269),
                           math.radians(56)]
 
-    #lst_joint_angles_3_down =
+    lst_joint_angles_3_down = [math.radians(-34),
+                          math.radians(305),
+                          math.radians(98),
+                          math.radians(-128),
+                          math.radians(269),
+                          math.radians(64)]
 
 
     #box 1
@@ -218,27 +227,69 @@ def main():
               math.radians(75)]
 
 
+    cnt = 0 
     while not rospy.is_shutdown():
         gripper.set_joint_angles(open)
         rospy.sleep(0.1)
 
         # object 1 -> box 1
         ur5.set_joint_angles(lst_joint_angles_1_up)
-        rospy.sleep(1)
+        rospy.sleep(0.5)
         ur5.set_joint_angles(lst_joint_angles_1_down)
-        rospy.sleep(1)
-        gripper.set_joint_angles(close)
-        rospy.sleep(1)
+        rospy.sleep(0.5)
+        gripper.set_joint_angles(close1)
+        rospy.sleep(0.5)
         ur5.set_joint_angles(box_1)
-        rospy.sleep(1)
+        rospy.sleep(0.5)
+        gripper.set_joint_angles(open)
+        rospy.sleep(0.5)
+        
+        # object 2 -> box_2_1
+
+        gripper.set_joint_angles(open)
+        rospy.sleep(0.1)
+        ur5.set_joint_angles(lst_joint_angles_2_up)
+        rospy.sleep(0.5)
+        ur5.set_joint_angles(lst_joint_angles_2_down)
+        rospy.sleep(0.5)
+        gripper.set_joint_angles(close2)
+        rospy.sleep(0.5)
+        ur5.set_joint_angles(box_2_1)
+        rospy.sleep(0.5)
         gripper.set_joint_angles(open)
         rospy.sleep(0.5)
 
+        # object 3 -> box_2_2
+        gripper.set_joint_angles(open)
+        rospy.sleep(0.1)
+        ur5.set_joint_angles(lst_joint_angles_3_up)
+        rospy.sleep(0.5)
+        ur5.set_joint_angles(lst_joint_angles_3_down)
+        rospy.sleep(0.5)
+        gripper.set_joint_angles(close3)
+        rospy.sleep(0.5)
+        ur5.set_joint_angles(box_2_2)
+        rospy.sleep(0.51)
+        gripper.set_joint_angles(open)
+        rospy.sleep(0.5)
+        
+        #After completing all process
+        if cnt == 0:
+            rospy.sleep(0.5)
+            break
         #continue same process for other 2 objects
 
         # object 2 -> box_2_1
-
-
+        # ur5.set_joint_angles(lst_joint_angles_2_up)
+        # rospy.sleep(1)
+        # ur5.set_joint_angles(lst_joint_angles_2_down)
+        # rospy.sleep(1)
+        # gripper.set_joint_angles(close)
+        # rospy.sleep(1)
+        # ur5.set_joint_angles(box_1)
+        # rospy.sleep(1)
+        # gripper.set_joint_angles(open)
+        # rospy.sleep(0.5)
 
         # object 3 -> box_2_2
 
