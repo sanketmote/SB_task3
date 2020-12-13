@@ -155,20 +155,20 @@ def main():
 
     close1 = [math.radians(14)]
     close2 = [math.radians(25)]
-    close3 = [math.radians(17)]
+    close3 = [math.radians(16)]
 
     #object 1
-    lst_joint_angles_1_up = [math.radians(-13),
-                          math.radians(-73),
+    lst_joint_angles_1_up = [math.radians(-14),
+                          math.radians(-72),
                           math.radians(108),
                           math.radians(-126),
-                          math.radians(-89),
+                          math.radians(-86),
                           math.radians(-54)]
 
     lst_joint_angles_1_down = [math.radians(-13),
                           math.radians(-56),
-                          math.radians(113),
-                          math.radians(-149),
+                          math.radians(110),
+                          math.radians(-143),
                           math.radians(-89),
                           math.radians(-54)]
 
@@ -188,26 +188,26 @@ def main():
                           math.radians(101)]
 
     #object 3
-    lst_joint_angles_3_up = [math.radians(-194),
-                          math.radians(-119),
-                          math.radians(-99),
-                          math.radians(-53),
-                          math.radians(91),
-                          math.radians(266)]
+    lst_joint_angles_3_up = [math.radians(-193),
+                          math.radians(-117),
+                          math.radians(-92),
+                          math.radians(-66),
+                          math.radians(90),
+                          math.radians(267)]
 
-    lst_joint_angles_3_down = [math.radians(-194),
-                          math.radians(-124),
-                          math.radians(-101),
-                          math.radians(-47),
+    lst_joint_angles_3_down = [math.radians(-193),
+                          math.radians(-125),
+                          math.radians(-97),
+                          math.radians(-54),
                           math.radians(91),
-                          math.radians(264)]
+                          math.radians(268)]
 
 
     #box 1
-    box_1 = [math.radians(83),
-              math.radians(-58),
-              math.radians(73),
-              math.radians(-105),
+    box_1 = [math.radians(84),
+              math.radians(-59),
+              math.radians(66),
+              math.radians(-97),
               math.radians(-88),
               math.radians(-96)]
 
@@ -244,8 +244,6 @@ def main():
         rospy.sleep(0.5)
         gripper.set_joint_angles(close1)
         rospy.sleep(0.5)
-        # ur5.set_joint_angles(lst_joint_angles_1_up)  #Added extra line to avoid dit.
-        # rospy.sleep(0.1)  #################+++++++++++
         ur5.set_joint_angles(box_1)
         rospy.sleep(0.5)
         gripper.set_joint_angles(open)
