@@ -1,5 +1,10 @@
 #! /usr/bin/env python
-
+'''
+SB_Task3 Moveit! Arm Manipulation Controller Node
+Created by Team eYRC#SB#871
+Reference:
+1) Python files provided in the MD Book for SB theme
+'''
 import rospy
 import sys
 import copy
@@ -10,13 +15,16 @@ import actionlib
 import math
 
 class Ur5Moveit:
-
+    '''
+    This is a class for the Arm Manipulation. An object of this class is created in the main()
+    function later. It is used to send set of joint angles to the arm in order to move it.
+    The code is self explainatory.
+    The planning group "arm_group" was created using moveit setup assistant and it consists of all
+    active joints of arm.
+    '''
     # Constructor
     def __init__(self):
-
-        rospy.init_node('node_eg3_set_joint_angles', anonymous=True)
-
-        self._planning_group = "arm_group"
+        self._planning_group = "arm_group"      # the planning group for arm control
         self._commander = moveit_commander.roscpp_initialize(sys.argv)
         self._robot = moveit_commander.RobotCommander()
         self._scene = moveit_commander.PlanningSceneInterface()
@@ -78,13 +86,17 @@ class Ur5Moveit:
 
 
 class Ur5Gripper:
-
+    '''
+    This is a class for the Gripper Control. An object of this class is created in the main()
+    function later. It is used to open and close the gripper using gripper_finger1_joint, by sending
+    joint angles to the gripper.
+    The code is self explainatory.
+    The planning group "gripper_group" was created using moveit setup assistant and it consists of
+    gripper_finger1_joint active joint for gripper control.
+    '''
     # Constructor
     def __init__(self):
-
-        rospy.init_node('node_eg3_set_joint_angles', anonymous=True)
-
-        self._planning_group = "gripper_group"
+        self._planning_group = "gripper_group"      # planning group for gripper
         self._commander = moveit_commander.roscpp_initialize(sys.argv)
         self._robot = moveit_commander.RobotCommander()
         self._scene = moveit_commander.PlanningSceneInterface()
@@ -147,61 +159,64 @@ class Ur5Gripper:
 
 # Main function
 def main():
-    ur5 = Ur5Moveit()
-    gripper = Ur5Gripper()
+    rospy.init_node('node_controller_joint_angles', anonymous=True)
+    arm = Ur5Moveit()   # object for arm manipulation
+    gripper = Ur5Gripper()  # object for gripper manipulation
 
     # gripper open and close
     open = [math.radians(0)]
 
-    close1 = [math.radians(14)]
-    close2 = [math.radians(25)]
-    close3 = [math.radians(16)]
+    close1 = [math.radians(14)] # for object 1
+    close2 = [math.radians(25)] # for object 2
+    close3 = [math.radians(14.5)] # for object 3
 
-    #object 1
-    lst_joint_angles_1_up = [math.radians(-14),
-                          math.radians(-72),
-                          math.radians(108),
-                          math.radians(-126),
-                          math.radians(-86),
-                          math.radians(-54)]
+    # Here, we have predefined all the joint angles necessary for the arm
+    # to perform pick and place function.
 
-    lst_joint_angles_1_down = [math.radians(-13),
-                          math.radians(-56),
-                          math.radians(110),
-                          math.radians(-143),
-                          math.radians(-89),
-                          math.radians(-54)]
+    # object 1
+    object_1_up = [math.radians(-14),
+                  math.radians(-72),
+                  math.radians(108),
+                  math.radians(-126),
+                  math.radians(-86),
+                  math.radians(-54)]
+
+    object_1_down = [math.radians(-13),
+                      math.radians(-56),
+                      math.radians(110),
+                      math.radians(-143),
+                      math.radians(-89),
+                      math.radians(-54)]
 
     #object 2
-    lst_joint_angles_2_up = [math.radians(-141),
-                          math.radians(-107),
-                          math.radians(-116),
-                          math.radians(-48),
-                          math.radians(90),
-                          math.radians(101)]
+    object_2_up = [math.radians(-141),
+                  math.radians(-107),
+                  math.radians(-116),
+                  math.radians(-48),
+                  math.radians(90),
+                  math.radians(101)]
 
-    lst_joint_angles_2_down = [math.radians(-141),
-                          math.radians(-119),
-                          math.radians(-120),
-                          math.radians(-32),
-                          math.radians(89),
-                          math.radians(101)]
+    object_2_down = [math.radians(-141),
+                      math.radians(-119),
+                      math.radians(-120),
+                      math.radians(-32),
+                      math.radians(89),
+                      math.radians(101)]
 
     #object 3
-    lst_joint_angles_3_up = [math.radians(-193),
-                          math.radians(-117),
-                          math.radians(-92),
-                          math.radians(-66),
-                          math.radians(90),
-                          math.radians(267)]
+    object_3_up = [math.radians(-193),
+                  math.radians(-117),
+                  math.radians(-92),
+                  math.radians(-66),
+                  math.radians(90),
+                  math.radians(267)]
 
-    lst_joint_angles_3_down = [math.radians(-193),
-                          math.radians(-125),
-                          math.radians(-97),
-                          math.radians(-54),
-                          math.radians(91),
-                          math.radians(268)]
-
+    object_3_down = [math.radians(-193),
+                      math.radians(-125),
+                      math.radians(-97),
+                      math.radians(-54),
+                      math.radians(91),
+                      math.radians(268)]
 
     #box 1
     box_1 = [math.radians(84),
@@ -211,19 +226,15 @@ def main():
               math.radians(-88),
               math.radians(-96)]
 
-    #box 2
-    # box_2_1 = [math.radians(-87),
-    #           math.radians(305),
-    #           math.radians(63),
-    #           math.radians(-98),
-    #           math.radians(268),
-    #           math.radians(93)]
+    #box 2 - position 1
     box_2_1 = [math.radians(-87),
               math.radians(-53),
               math.radians(72),
               math.radians(-109),
               math.radians(-92),
               math.radians(93)]
+
+    #box 2 - position 2
     box_2_2 = [math.radians(-106),
               math.radians(-55),
               math.radians(65),
@@ -231,34 +242,35 @@ def main():
               math.radians(-92),
               math.radians(255)]
 
-    gripper.set_joint_angles(open)
-    rospy.sleep(0.1)
+    # Actual Control Start !!!
 
-        # object 1 -> box 1
-    ur5.set_joint_angles(lst_joint_angles_1_up)
-    ur5.set_joint_angles(lst_joint_angles_1_down)
+    gripper.set_joint_angles(open)
+
+    # object 1 -> box 1
+    arm.set_joint_angles(object_1_up)
+    arm.set_joint_angles(object_1_down)
     gripper.set_joint_angles(close1)
-    ur5.set_joint_angles(lst_joint_angles_1_up)
-    ur5.set_joint_angles(box_1)
+    arm.set_joint_angles(object_1_up)
+    arm.set_joint_angles(box_1)
     gripper.set_joint_angles(open)
-        
-        # object 2 -> box_2_1
 
-    gripper.set_joint_angles(open)
-    ur5.set_joint_angles(lst_joint_angles_2_up)
-    ur5.set_joint_angles(lst_joint_angles_2_down)
+    # object 2 -> box_2_1
+    arm.set_joint_angles(object_2_up)
+    arm.set_joint_angles(object_2_down)
     gripper.set_joint_angles(close2)
-    ur5.set_joint_angles(box_2_1)
+    arm.set_joint_angles(box_2_1)
     gripper.set_joint_angles(open)
 
-        # object 3 -> box_2_2
-    gripper.set_joint_angles(open)
-    ur5.set_joint_angles(lst_joint_angles_3_up)
-    ur5.set_joint_angles(lst_joint_angles_3_down)
+    # object 3 -> box_2_2
+    arm.set_joint_angles(object_3_up)
+    arm.set_joint_angles(object_3_down)
     gripper.set_joint_angles(close3)
-    ur5.set_joint_angles(box_2_2)
+    arm.set_joint_angles(box_2_2)
     gripper.set_joint_angles(open)
-    del ur5
+
+    #After completing all process
+    rospy.sleep(0.1)
+    del arm
     del gripper
 
 
