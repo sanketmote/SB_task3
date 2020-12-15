@@ -238,6 +238,7 @@ def main():
     ur5.set_joint_angles(lst_joint_angles_1_up)
     ur5.set_joint_angles(lst_joint_angles_1_down)
     gripper.set_joint_angles(close1)
+    ur5.set_joint_angles(lst_joint_angles_1_up)
     ur5.set_joint_angles(box_1)
     gripper.set_joint_angles(open)
         
