@@ -168,80 +168,81 @@ def main():
 
     close1 = [math.radians(14)] # for object 1
     close2 = [math.radians(25)] # for object 2
-    close3 = [math.radians(16)] # for object 3
+    close3 = [math.radians(14.5)] # for object 3
 
     # Here, we have predefined all the joint angles necessary for the arm
     # to perform pick and place function.
 
-    #object 1
-    object_1_up = [math.radians(190),
-                  math.radians(-105),
-                  math.radians(-100),
-                  math.radians(-65),
-                  math.radians(89),
-                  math.radians(-214)]
+    # object 1
+    object_1_up = [math.radians(-14),
+                  math.radians(-72),
+                  math.radians(108),
+                  math.radians(-126),
+                  math.radians(-86),
+                  math.radians(-54)]
 
-    object_1_down = [math.radians(189),
-                      math.radians(-124),
-                      math.radians(-111),
-                      math.radians(-36),
-                      math.radians(89),
-                      math.radians(-214)]
+    object_1_down = [math.radians(-13),
+                      math.radians(-56),
+                      math.radians(110),
+                      math.radians(-143),
+                      math.radians(-89),
+                      math.radians(-54)]
 
     #object 2
-    object_2_up = [math.radians(219),
-                  math.radians(-96),
-                  math.radians(-103),
-                  math.radians(-73),
-                  math.radians(-269),
+    object_2_up = [math.radians(-141),
+                  math.radians(-107),
+                  math.radians(-116),
+                  math.radians(-48),
+                  math.radians(90),
                   math.radians(101)]
 
-
-    object_2_down = [math.radians(219),
+    object_2_down = [math.radians(-141),
                       math.radians(-119),
                       math.radians(-120),
                       math.radians(-32),
-                      math.radians(-269),
+                      math.radians(89),
                       math.radians(101)]
 
     #object 3
-    object_3_up = [math.radians(170),
-                  math.radians(-113),
-                  math.radians(-85),
-                  math.radians(-77),
-                  math.radians(-274),
-                  math.radians(-93)]
+    object_3_up = [math.radians(-193),
+                  math.radians(-117),
+                  math.radians(-92),
+                  math.radians(-66),
+                  math.radians(90),
+                  math.radians(267)]
 
-    object_3_down = [math.radians(168),
-                      math.radians(-124),
-                      math.radians(-99),
-                      math.radians(-52),
-                      math.radians(-275),
-                      math.radians(-94)]
+    object_3_down = [math.radians(-193),
+                      math.radians(-125),
+                      math.radians(-97),
+                      math.radians(-54),
+                      math.radians(91),
+                      math.radians(268)]
 
     #box 1
-    box_1 = [math.radians(279),
-              math.radians(-125),
-              math.radians(-43),
-              math.radians(-104),
-              math.radians(91),
-              math.radians(-161)]
+    box_1 = [math.radians(84),
+              math.radians(-59),
+              math.radians(66),
+              math.radians(-97),
+              math.radians(-88),
+              math.radians(-96)]
 
     #box 2 - position 1
-    box_2_1 = [math.radians(109),
-              math.radians(-120),
-              math.radians(-69),
-              math.radians(-80),
-              math.radians(-272),
-              math.radians(111)]
+    box_2_1 = [math.radians(-87),
+              math.radians(-53),
+              math.radians(72),
+              math.radians(-109),
+              math.radians(-92),
+              math.radians(93)]
 
     #box 2 - position 2
-    box_2_2 = [math.radians(95),
-              math.radians(-124),
-              math.radians(-74),
-              math.radians(-70),
-              math.radians(85),
-              math.radians(-255)]
+    box_2_2 = [math.radians(-106),
+              math.radians(-55),
+              math.radians(65),
+              math.radians(-99),
+              math.radians(-92),
+              math.radians(255)]
+
+    # Actual Control Start !!!
 
     gripper.set_joint_angles(open)
 
@@ -257,7 +258,6 @@ def main():
     arm.set_joint_angles(object_2_up)
     arm.set_joint_angles(object_2_down)
     gripper.set_joint_angles(close2)
-    arm.set_joint_angles(object_2_up)
     arm.set_joint_angles(box_2_1)
     gripper.set_joint_angles(open)
 
