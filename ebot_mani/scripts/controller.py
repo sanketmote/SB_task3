@@ -168,7 +168,7 @@ def main():
 
     close1 = [math.radians(14)] # for object 1
     close2 = [math.radians(25)] # for object 2
-    close3 = [math.radians(14)] # for object 3
+    close3 = [math.radians(13.5)] # for object 3
 
     # Here, we have predefined all the joint angles necessary for the arm
     # to perform pick and place function.
