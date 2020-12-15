@@ -14,6 +14,7 @@ import geometry_msgs.msg
 import actionlib
 import math
 
+
 class Ur5Moveit:
     '''
     This is a class for the Arm Manipulation. An object of this class is created in the main()
@@ -23,6 +24,7 @@ class Ur5Moveit:
     active joints of arm.
     '''
     # Constructor
+
     def __init__(self):
         self._planning_group = "arm_group"      # the planning group for arm control
         self._commander = moveit_commander.roscpp_initialize(sys.argv)
@@ -39,7 +41,6 @@ class Ur5Moveit:
         self._planning_frame = self._group.get_planning_frame()
         self._eef_link = self._group.get_end_effector_link()
         self._group_names = self._robot.get_group_names()
-
 
         rospy.loginfo(
             '\033[94m' + "Planning Group: {}".format(self._planning_frame) + '\033[0m')
@@ -95,6 +96,7 @@ class Ur5Gripper:
     gripper_finger1_joint active joint for gripper control.
     '''
     # Constructor
+
     def __init__(self):
         self._planning_group = "gripper_group"      # planning group for gripper
         self._commander = moveit_commander.roscpp_initialize(sys.argv)
@@ -111,7 +113,6 @@ class Ur5Gripper:
         self._planning_frame = self._group.get_planning_frame()
         self._eef_link = self._group.get_end_effector_link()
         self._group_names = self._robot.get_group_names()
-
 
         rospy.loginfo(
             '\033[94m' + "Planning Group: {}".format(self._planning_frame) + '\033[0m')
@@ -166,81 +167,81 @@ def main():
     # gripper open and close
     open = [math.radians(0)]
 
-    close1 = [math.radians(14)] # for object 1
-    close2 = [math.radians(25)] # for object 2
-    close3 = [math.radians(13.5)] # for object 3
+    close1 = [math.radians(14)]  # for object 1
+    close2 = [math.radians(25)]  # for object 2
+    close3 = [math.radians(13.5)]  # for object 3
 
     # Here, we have predefined all the joint angles necessary for the arm
     # to perform pick and place function.
 
     # object 1
     object_1_up = [math.radians(-14),
-                  math.radians(-72),
-                  math.radians(108),
-                  math.radians(-126),
-                  math.radians(-86),
-                  math.radians(-54)]
+                   math.radians(-72),
+                   math.radians(108),
+                   math.radians(-126),
+                   math.radians(-86),
+                   math.radians(-54)]
 
     object_1_down = [math.radians(-13),
-                      math.radians(-56),
-                      math.radians(110),
-                      math.radians(-143),
-                      math.radians(-89),
-                      math.radians(-54)]
+                     math.radians(-56),
+                     math.radians(110),
+                     math.radians(-143),
+                     math.radians(-89),
+                     math.radians(-54)]
 
-    #object 2
+    # object 2
     object_2_up = [math.radians(-141),
-                  math.radians(-107),
-                  math.radians(-116),
-                  math.radians(-48),
-                  math.radians(90),
-                  math.radians(101)]
+                   math.radians(-107),
+                   math.radians(-116),
+                   math.radians(-48),
+                   math.radians(90),
+                   math.radians(101)]
 
     object_2_down = [math.radians(-141),
-                      math.radians(-119),
-                      math.radians(-120),
-                      math.radians(-32),
-                      math.radians(89),
-                      math.radians(101)]
+                     math.radians(-119),
+                     math.radians(-120),
+                     math.radians(-32),
+                     math.radians(89),
+                     math.radians(101)]
 
-    #object 3
+    # object 3
     object_3_up = [math.radians(-193),
-                  math.radians(-117),
-                  math.radians(-92),
-                  math.radians(-66),
-                  math.radians(90),
-                  math.radians(267)]
+                   math.radians(-117),
+                   math.radians(-92),
+                   math.radians(-66),
+                   math.radians(90),
+                   math.radians(267)]
 
     object_3_down = [math.radians(-193),
-                      math.radians(-125),
-                      math.radians(-97),
-                      math.radians(-54),
-                      math.radians(91),
-                      math.radians(268)]
+                     math.radians(-125),
+                     math.radians(-97),
+                     math.radians(-54),
+                     math.radians(91),
+                     math.radians(268)]
 
-    #box 1
+    # box 1
     box_1 = [math.radians(84),
-              math.radians(-59),
-              math.radians(66),
-              math.radians(-97),
-              math.radians(-88),
-              math.radians(-96)]
+             math.radians(-59),
+             math.radians(66),
+             math.radians(-97),
+             math.radians(-88),
+             math.radians(-96)]
 
-    #box 2 - position 1
+    # box 2 - position 1
     box_2_1 = [math.radians(-87),
-              math.radians(-53),
-              math.radians(72),
-              math.radians(-109),
-              math.radians(-92),
-              math.radians(93)]
+               math.radians(-53),
+               math.radians(72),
+               math.radians(-109),
+               math.radians(-92),
+               math.radians(93)]
 
-    #box 2 - position 2
+    # box 2 - position 2
     box_2_2 = [math.radians(-106),
-              math.radians(-55),
-              math.radians(65),
-              math.radians(-99),
-              math.radians(-92),
-              math.radians(255)]
+               math.radians(-55),
+               math.radians(65),
+               math.radians(-99),
+               math.radians(-92),
+               math.radians(255)]
 
     # Actual Control Start !!!
 
@@ -268,11 +269,10 @@ def main():
     arm.set_joint_angles(box_2_2)
     gripper.set_joint_angles(open)
 
-    #After completing all process
+    # After completing all process
     rospy.sleep(0.1)
     del arm
     del gripper
-
 
 
 if __name__ == '__main__':
