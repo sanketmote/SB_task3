@@ -28,6 +28,7 @@
 
 <!-- include the moveit launch file and node for pick and place -->
 	<include file="$(find pkg_moveit_ur5_2)/launch/main.launch" />
+	<node name="controller.py" pkg="pkg_moveit_ur5_2" type="controller.py" />
 
 <!-- Rosbag Recording Node -->
 	<arg name="duration" default="120"/>
@@ -44,6 +45,5 @@
 			/arm_controller/follow_joint_trajectory/feedback
 			/tf" output="screen"/>
 	</group>
-
 
 </launch>
