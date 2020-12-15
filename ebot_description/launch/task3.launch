@@ -37,7 +37,7 @@
 			args="messages /gazebo/model_states 10.0"/>
 
 		<node name="task3_rosbag" pkg="rosbag" type="record"
-			args="record -O $(find ebot_mani)/bag_files/$(arg rec_name) --duration=$(arg duration)
+			args="record -O $(find pkg_moveit_ur5_2)/bag_files/$(arg rec_name) --duration=$(arg duration)
 			/gazebo/model_states_throttle
 			/gripper_controller/follow_joint_trajectory/feedback
 			/arm_controller/follow_joint_trajectory/feedback
