@@ -29,8 +29,8 @@
 	<node name="controller" pkg="ebot_mani" type="controller.py"/>
 
 <!-- Rosbag Recording Node -->
-	<arg name="duration" default="120"/>
-	<arg name="rec_name" default="task3.bag"/>
+	<arg name="duration" default="150"/>
+	<arg name="rec_name" default="task3_final.bag"/>
 	<arg name="record" default="false"/>
 	<group if="$(arg record)">
 		<node name="state_node" pkg="topic_tools" type="throttle"
